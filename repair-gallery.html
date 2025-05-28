@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Repair Gallery | JasCanFixIt</title>
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Pink neon glow */
+    body {
+      background-color: #000; /* solid black background */
+      color: #f472b6;         /* neon pink text */
+    }
+    .glow-text {
+      text-shadow: 0 0 10px #f472b6, 0 0 20px #f472b6;
+    }
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center px-4 py-8">
+  <!-- Big Glowing Title -->
+  <h1 class="text-4xl font-bold glow-text mb-8 text-center">🛠️ Repair Gallery 🖤</h1>
+
+  <!-- Image Grid Section -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl">
+    
+    <!-- One Repair Item Block -->
+    <div class="bg-gray-900 p-4 rounded-lg hover-scale">
+      <img src="before1.jpg" alt="Before Repair" class="rounded mb-2">
+      <img src="after1.jpg" alt="After Repair" class="rounded">
+      <p class="mt-2 text-sm text-pink-300">iPhone X Screen - Before & After</p>
+    </div>
+
+    <!-- You can copy this whole block to add more repairs -->
+    <div class="bg-gray-900 p-4 rounded-lg hover-scale">
+      <img src="before2.jpg" alt="Before Repair" class="rounded mb-2">
+      <img src="after2.jpg" alt="After Repair" class="rounded">
+      <p class="mt-2 text-sm text-pink-300">Galaxy S21 Back Glass - Before & After</p>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-12 text-pink-400 text-sm">
+    &copy; 2025 JasCanFixIt — All Rights Reserved
+  </footer>
+</body>
+</html>
