@@ -52,14 +52,15 @@
       <label class="block mb-2 font-semibold">What's wrong?</label>
       <select id="issue" class="w-full p-2 rounded bg-black border border-pink-500 text-white">
         <option value="">-- Choose --</option>
-        <option value="screen">Cracked Screen</option>
-        <option value="battery">Battery Replacement</option>
-        <option value="backglass">Back Glass Replacement</option>
-        <option value="charging">Charging Port</option>
-        <option value="water">Water Damage</option>
-        <option value="speaker">Speaker Issue</option>
-        <option value="camera">Camera Repair</option>
-        <option value="software">Software Reset</option>
+<option value="joystick">Joystick Drift / Stick Issue</option>
+<option value="buttons">Buttons Not Working</option>
+<option value="chargingport">Charging Port Issue</option>
+<option value="vibration">Vibration Problem</option>
+<option value="connectivity">Connectivity / Bluetooth</option>
+<option value="shell">Shell / Housing Replacement</option>
+<option value="battery">Battery Replacement</option>
+<option value="software">Software Reset</option>
+
       </select>
     </div>
 
@@ -95,8 +96,47 @@
       "Nintendo Switch": { screen: 85, battery: 60, water: 50, charging: 40, backglass: 0, speaker: 30, camera: 0, software: 20 },
       "Nintendo Switch Lite": { screen: 75, battery: 55, water: 45, charging: 40, backglass: 0, speaker: 30, camera: 0, software: 20 },
       "PS5 Controller": { screen: 0, battery: 45, water: 35, charging: 30, backglass: 0, speaker: 25, camera: 0, software: 15 },
-      "Xbox Series X Controller": { screen: 0, battery: 40, water: 30, charging: 25, backglass: 0, speaker: 25, camera: 0, software: 15 }
-    };
+      "PS5 Controller": {
+  joystick: 35,
+  buttons: 30,
+  chargingport: 30,
+  vibration: 25,
+  connectivity: 20,
+  shell: 45,
+  battery: 40,
+  software: 15
+},
+"Xbox Series X Controller": {
+  joystick: 30,
+  buttons: 25,
+  chargingport: 25,
+  vibration: 20,
+  connectivity: 20,
+  shell: 40,
+  battery: 35,
+  software: 15
+},
+"Nintendo Switch Lite": {
+  joystick: 45,
+  buttons: 30,
+  chargingport: 35,
+  vibration: 20,
+  connectivity: 20,
+  shell: 50,
+  battery: 40,
+  software: 20
+},
+"Nintendo Switch": {
+  joystick: 50,
+  buttons: 35,
+  chargingport: 40,
+  vibration: 25,
+  connectivity: 25,
+  shell: 55,
+  battery: 45,
+  software: 20
+}
+
 
     function getQuote() {
       const model = document.getElementById("model").value;
