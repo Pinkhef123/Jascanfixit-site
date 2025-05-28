@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Get a Quick Repair Quote | JasCanFixIt</title>
+  <meta charset="UTF-8" />
+  <title>Get a Repair Quote | JasCanFixIt</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
@@ -17,85 +17,95 @@
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4">
   
-  <h1 class="text-4xl font-bold glow mb-6">📱 Instant Repair Quote</h1>
+  <h1 class="text-4xl font-bold glow mb-6 text-center">💸 Instant Repair Quote</h1>
 
   <div class="bg-gray-900 p-6 rounded-lg shadow-lg w-full max-w-md border border-pink-500 space-y-4">
-    <!-- Phone model dropdown -->
+    <!-- Device Selection -->
     <div>
-      <label class="block mb-2">Select your phone:</label>
-<select id="model" class="w-full p-2 rounded bg-black border border-pink-500 text-white">
-  <option value="">-- Choose --</option>
-  <!-- iPhones -->
-  <option value="iPhone XR">iPhone XR</option>
-  <option value="iPhone 11">iPhone 11</option>
-  <option value="iPhone 12 Pro Max">iPhone 12 Pro Max</option>
-  <option value="iPhone 13">iPhone 13</option>
-  <option value="iPhone 14">iPhone 14</option>
-  
-  <!-- Androids -->
-  <option value="Galaxy S21">Galaxy S21</option>
-  <option value="Galaxy A53">Galaxy A53</option>
-  <option value="Galaxy Note 20">Galaxy Note 20</option>
-  <option value="Google Pixel 6">Google Pixel 6</option>
-  
-  <!-- Tablets & Laptops -->
-  <option value="iPad Air">iPad Air</option>
-  <option value="iPad Pro">iPad Pro</option>
-  <option value="Samsung Tab S7">Samsung Tab S7</option>
-  <option value="MacBook Pro">MacBook Pro</option>
-  <option value="Chromebook">Chromebook</option>
+      <label class="block mb-2 font-semibold">Select your device:</label>
+      <select id="model" class="w-full p-2 rounded bg-black border border-pink-500 text-white">
+        <option value="">-- Choose --</option>
 
-  <!-- Consoles -->
-  <option value="Nintendo Switch">Nintendo Switch</option>
-  <option value="Nintendo Switch Lite">Nintendo Switch Lite</option>
-  <option value="PS5 Controller">PS5 Controller</option>
-  <option value="Xbox Series X Controller">Xbox Series X Controller</option>
-</select>
-</div>
+        <!-- iPhones -->
+        <option value="iPhone XR">iPhone XR</option>
+        <option value="iPhone 11">iPhone 11</option>
+        <option value="iPhone 12 Pro Max">iPhone 12 Pro Max</option>
+        <option value="iPhone 13">iPhone 13</option>
+        <option value="iPhone 14">iPhone 14</option>
 
-    <!-- Issue dropdown -->
+        <!-- Androids -->
+        <option value="Galaxy S21">Galaxy S21</option>
+        <option value="Galaxy A53">Galaxy A53</option>
+        <option value="Galaxy Note 20">Galaxy Note 20</option>
+        <option value="Google Pixel 6">Google Pixel 6</option>
+
+        <!-- Tablets & Laptops -->
+        <option value="iPad Air">iPad Air</option>
+        <option value="iPad Pro">iPad Pro</option>
+        <option value="Samsung Tab S7">Samsung Tab S7</option>
+        <option value="MacBook Pro">MacBook Pro</option>
+        <option value="Chromebook">Chromebook</option>
+
+        <!-- Consoles -->
+        <option value="Nintendo Switch">Nintendo Switch</option>
+        <option value="Nintendo Switch Lite">Nintendo Switch Lite</option>
+        <option value="PS5 Controller">PS5 Controller</option>
+        <option value="Xbox Series X Controller">Xbox Series X Controller</option>
+      </select>
+    </div>
+
+    <!-- Repair Type -->
     <div>
-      <label class="block mb-2">What’s wrong?</label>
+      <label class="block mb-2 font-semibold">What's wrong?</label>
       <select id="issue" class="w-full p-2 rounded bg-black border border-pink-500 text-white">
         <option value="">-- Choose --</option>
         <option value="screen">Cracked Screen</option>
         <option value="battery">Battery Replacement</option>
-        <option value="water">Water Damage</option>
+        <option value="backglass">Back Glass Replacement</option>
         <option value="charging">Charging Port</option>
+        <option value="water">Water Damage</option>
+        <option value="speaker">Speaker Issue</option>
+        <option value="camera">Camera Repair</option>
+        <option value="software">Software Reset</option>
       </select>
     </div>
 
-    <!-- Button -->
-    <button onclick="getQuote()" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded w-full">Get Quote</button>
+    <!-- Get Quote Button -->
+    <button onclick="getQuote()" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded w-full">
+      Get Quote
+    </button>
 
     <!-- Result -->
     <div id="quoteResult" class="mt-4 text-lg text-pink-300 font-semibold text-center"></div>
   </div>
 
+  <!-- Script -->
   <script>
     const prices = {
-  "iPhone XR":      { screen: 75, battery: 50, water: 55, charging: 50, backglass: 60, speaker: 35, camera: 50, software: 25 },
-  "iPhone 11":      { screen: 80, battery: 50, water: 60, charging: 55, backglass: 70, speaker: 40, camera: 60, software: 30 },
-  "iPhone 12 Pro Max": { screen: 140, battery: 70, water: 75, charging: 70, backglass: 100, speaker: 50, camera: 80, software: 35 },
-  "iPhone 13":      { screen: 110, battery: 60, water: 65, charging: 60, backglass: 90, speaker: 45, camera: 70, software: 30 },
-  "iPhone 14":      { screen: 130, battery: 65, water: 70, charging: 65, backglass: 95, speaker: 50, camera: 80, software: 30 },
-  
-  "Galaxy S21":     { screen: 120, battery: 70, water: 60, charging: 65, backglass: 85, speaker: 40, camera: 75, software: 30 },
-  "Galaxy A53":     { screen: 95, battery: 55, water: 55, charging: 50, backglass: 70, speaker: 35, camera: 60, software: 25 },
-  "Galaxy Note 20": { screen: 130, battery: 65, water: 60, charging: 65, backglass: 90, speaker: 45, camera: 70, software: 30 },
-  "Google Pixel 6": { screen: 110, battery: 60, water: 55, charging: 55, backglass: 75, speaker: 40, camera: 65, software: 25 },
+      "iPhone XR": { screen: 75, battery: 50, water: 55, charging: 50, backglass: 60, speaker: 35, camera: 50, software: 25 },
+      "iPhone 11": { screen: 80, battery: 50, water: 60, charging: 55, backglass: 70, speaker: 40, camera: 60, software: 30 },
+      "iPhone 12 Pro Max": { screen: 140, battery: 70, water: 75, charging: 70, backglass: 100, speaker: 50, camera: 80, software: 35 },
+      "iPhone 13": { screen: 110, battery: 60, water: 65, charging: 60, backglass: 90, speaker: 45, camera: 70, software: 30 },
+      "iPhone 14": { screen: 130, battery: 65, water: 70, charging: 65, backglass: 95, speaker: 50, camera: 80, software: 30 },
 
-  "iPad Air":       { screen: 110, battery: 70, water: 65, charging: 60, backglass: 90, speaker: 50, camera: 70, software: 30 },
-  "iPad Pro":       { screen: 130, battery: 80, water: 75, charging: 70, backglass: 100, speaker: 50, camera: 90, software: 35 },
-  "Samsung Tab S7": { screen: 120, battery: 75, water: 70, charging: 65, backglass: 90, speaker: 45, camera: 85, software: 30 },
-  "MacBook Pro":    { screen: 180, battery: 120, water: 100, charging: 90, backglass: 0, speaker: 75, camera: 95, software: 40 },
-  "Chromebook":     { screen: 95, battery: 60, water: 60, charging: 50, backglass: 0, speaker: 35, camera: 50, software: 25 },
+      "Galaxy S21": { screen: 120, battery: 70, water: 60, charging: 65, backglass: 85, speaker: 40, camera: 75, software: 30 },
+      "Galaxy A53": { screen: 95, battery: 55, water: 55, charging: 50, backglass: 70, speaker: 35, camera: 60, software: 25 },
+      "Galaxy Note 20": { screen: 130, battery: 65, water: 60, charging: 65, backglass: 90, speaker: 45, camera: 70, software: 30 },
+      "Google Pixel 6": { screen: 110, battery: 60, water: 55, charging: 55, backglass: 75, speaker: 40, camera: 65, software: 25 },
 
-  "Nintendo Switch":      { screen: 85, battery: 60, water: 50, charging: 40, backglass: 0, speaker: 30, camera: 0, software: 20 },
-  "Nintendo Switch Lite": { screen: 75, battery: 55, water: 45, charging: 40, backglass: 0, speaker: 30, camera: 0, software: 20 },
-  "PS5 Controller":       { screen: 0, battery: 45, water: 35, charging: 30, backglass: 0, speaker: 25, camera: 0, software: 15 },
-  "Xbox Series X Controller": { screen: 0, battery: 40, water: 30, charging: 25, backglass: 0, speaker: 25, camera: 0, software: 15 },
-};    function getQuote() {
+      "iPad Air": { screen: 110, battery: 70, water: 65, charging: 60, backglass: 90, speaker: 50, camera: 70, software: 30 },
+      "iPad Pro": { screen: 130, battery: 80, water: 75, charging: 70, backglass: 100, speaker: 50, camera: 90, software: 35 },
+      "Samsung Tab S7": { screen: 120, battery: 75, water: 70, charging: 65, backglass: 90, speaker: 45, camera: 85, software: 30 },
+      "MacBook Pro": { screen: 180, battery: 120, water: 100, charging: 90, backglass: 0, speaker: 75, camera: 95, software: 40 },
+      "Chromebook": { screen: 95, battery: 60, water: 60, charging: 50, backglass: 0, speaker: 35, camera: 50, software: 25 },
+
+      "Nintendo Switch": { screen: 85, battery: 60, water: 50, charging: 40, backglass: 0, speaker: 30, camera: 0, software: 20 },
+      "Nintendo Switch Lite": { screen: 75, battery: 55, water: 45, charging: 40, backglass: 0, speaker: 30, camera: 0, software: 20 },
+      "PS5 Controller": { screen: 0, battery: 45, water: 35, charging: 30, backglass: 0, speaker: 25, camera: 0, software: 15 },
+      "Xbox Series X Controller": { screen: 0, battery: 40, water: 30, charging: 25, backglass: 0, speaker: 25, camera: 0, software: 15 }
+    };
+
+    function getQuote() {
       const model = document.getElementById("model").value;
       const issue = document.getElementById("issue").value;
       const result = document.getElementById("quoteResult");
@@ -106,7 +116,11 @@
       }
 
       const price = prices[model][issue];
-      result.textContent = `Estimated price for ${model} - ${issue.replace(/^\w/, c => c.toUpperCase())}: $${price}`;
+      if (price === 0 || price === undefined) {
+        result.textContent = `Sorry! That service isn't offered for ${model}.`;
+      } else {
+        result.textContent = `Estimated price for ${model} (${issue.replace(/^\w/, c => c.toUpperCase())}): $${price}`;
+      }
     }
   </script>
 </body>
