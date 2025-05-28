@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Get a Quick Repair Quote | JasCanFixIt</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #000;
+      color: #f472b6;
+      font-family: sans-serif;
+    }
+    .glow {
+      text-shadow: 0 0 10px #f472b6, 0 0 20px #f472b6;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+  
+  <h1 class="text-4xl font-bold glow mb-6">📱 Instant Repair Quote</h1>
+
+  <div class="bg-gray-900 p-6 rounded-lg shadow-lg w-full max-w-md border border-pink-500 space-y-4">
+    <!-- Phone model dropdown -->
+    <div>
+      <label class="block mb-2">Select your phone:</label>
+      <select id="model" class="w-full p-2 rounded bg-black border border-pink-500 text-white">
+        <option value="">-- Choose --</option>
+        <option value="iPhone 11">iPhone 11</option>
+        <option value="iPhone 13">iPhone 13</option>
+        <option value="Galaxy S21">Galaxy S21</option>
+        <option value="iPad Pro">iPad Pro</option>
+      </select>
+    </div>
+
+    <!-- Issue dropdown -->
+    <div>
+      <label class="block mb-2">What’s wrong?</label>
+      <select id="issue" class="w-full p-2 rounded bg-black border border-pink-500 text-white">
+        <option value="">-- Choose --</option>
+        <option value="screen">Cracked Screen</option>
+        <option value="battery">Battery Replacement</option>
+        <option value="water">Water Damage</option>
+        <option value="charging">Charging Port</option>
+      </select>
+    </div>
+
+    <!-- Button -->
+    <button onclick="getQuote()" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded w-full">Get Quote</button>
+
+    <!-- Result -->
+    <div id="quoteResult" class="mt-4 text-lg text-pink-300 font-semibold text-center"></div>
+  </div>
+
+  <script>
+    const prices = {
+      "iPhone 11": { screen: 80, battery: 50, water: 60, charging: 55 },
+      "iPhone 13": { screen: 110, battery: 60, water: 65, charging: 60 },
+      "Galaxy S21": { screen: 120, battery: 70, water: 60, charging: 65 },
+      "iPad Pro": { screen: 130, battery: 80, water: 75, charging: 70 },
+    };
+
+    function getQuote() {
+      const model = document.getElementById("model").value;
+      const issue = document.getElementById("issue").value;
+      const result = document.getElementById("quoteResult");
+
+      if (!model || !issue) {
+        result.textContent = "Please select both your device and issue.";
+        return;
+      }
+
+      const price = prices[model][issue];
+      result.textContent = `Estimated price for ${model} - ${issue.replace(/^\w/, c => c.toUpperCase())}: $${price}`;
+    }
+  </script>
+</body>
+</html>
