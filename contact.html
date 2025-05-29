@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - JasCanFixIt</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --neon-pink: #ff00cc;
+      --dark-bg: #0d0d0d;
+      --card-bg: #1a1a1a;
+      --text-light: #f5f5f5;
+    }
+    .text-neon-pink {
+      color: var(--neon-pink);
+    }
+    .bg-neon-pink {
+      background-color: var(--neon-pink);
+    }
+    .border-neon-pink {
+      border-color: var(--neon-pink);
+    }
+  </style>
+</head>
+<body class="bg-[var(--dark-bg)] text-[var(--text-light)] font-sans">
+
+  <!-- Header -->
+  <header class="bg-black text-white shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-pink-400">JasCanFixIt</h1>
+      <nav class="flex space-x-6 text-sm md:text-base">
+        <a href="index.html" class="hover:text-pink-300">Home</a>
+        <a href="pricing.html" class="hover:text-pink-300">Pricing</a>
+        <a href="repair-myths.html" class="hover:text-pink-300">Repair Myths</a>
+        <a href="contact.html" class="text-pink-400 font-semibold underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="max-w-3xl mx-auto px-4 py-12">
+    <h2 class="text-4xl font-bold text-neon-pink mb-6 text-center">📞 Get in Touch</h2>
+    <p class="text-gray-400 text-center mb-10">Questions? Quotes? Collabs? Booking? Slide in below.</p>
+
+    <!-- Contact Form -->
+    <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-6 bg-[var(--card-bg)] p-6 rounded-xl shadow-lg">
+      <div>
+        <label for="name" class="block text-sm font-medium text-neon-pink">Name</label>
+        <input type="text" id="name" name="name" required class="w-full mt-1 p-3 bg-gray-800 text-white rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-pink-500" />
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium text-neon-pink">Email</label>
+        <input type="email" id="email" name="email" required class="w-full mt-1 p-3 bg-gray-800 text-white rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-pink-500" />
+      </div>
+
+      <div>
+        <label for="message" class="block text-sm font-medium text-neon-pink">Message</label>
+        <textarea id="message" name="message" rows="5" required class="w-full mt-1 p-3 bg-gray-800 text-white rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+      </div>
+
+      <button type="submit" class="bg-neon-pink text-black font-bold px-6 py-3 rounded hover:opacity-80 transition">Send Message</button>
+    </form>
+
+    <!-- Booking + Social Links -->
+    <div class="mt-12 text-center text-sm text-gray-300">
+      <h3 class="text-neon-pink font-bold text-xl mb-2 mt-6">📲 Book Me Direct</h3>
+      <a href="https://book.heygoldie.com/JasCanFixIt" target="_blank" class="text-neon-pink underline text-lg">book.heygoldie.com/JasCanFixIt</a>
+
+      <div class="mt-8">
+        <h3 class="text-neon-pink font-bold text-xl mb-2">💬 Socials</h3>
+        <p>
+          TikTok: <a href="https://tiktok.com/@pinkhefner_" target="_blank" class="underline text-neon-pink">@pinkhefner_</a>
+        </p>
+        <p>
+          Instagram: <a href="https://instagram.com/pinkhefner__" target="_blank" class="underline text-neon-pink">@pinkhefner__</a>
+        </p>
+      </div>
+
+      <div class="mt-10">
+        <p>📧 Email: <a href="mailto:jas@jascanfixit.net" class="text-neon-pink underline">jas@jascanfixit.net</a></p>
+        <p>📞 Phone: (901) 459-7403</p>
+        <p>🕒 Hours: Mon–Sat, 10am–7pm</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
